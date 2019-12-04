@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day_week: MyText
+  start_time: 2019-11-30 21:50:11
+  end_time: 2019-11-30 21:50:11
+
+two:
+  day_week: MyText
+  start_time: 2019-11-30 21:50:11
+  end_time: 2019-11-30 21:50:11

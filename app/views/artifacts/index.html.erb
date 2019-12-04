@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Artifacts</h1>
+
+<%= paginate @artifacts %>
+<br>
+  <div class="container my-4">
+      <div class="carousel-inner" role="listbox">
+<% @artifacts.each do |artifact| %>
+        <!--First slide-->
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-2">
+               <td><% if artifact.image_url %>
+               <%= image_tag artifact.image_url, size:"200x100" %>
+               <% end %>
+                <div class="card-body">
+                  <h4 class="card-title"><%= artifact.name %></h4>
+                  <p class="card-text"><%= artifact.description %></p>
+                   <p class="card-text"><%= artifact.amount %></p>
+                    <p class="card-text"><%= artifact.category %></p>
+                  <a class="btn btn-primary">Button</a>
+                  <%= search_form_for @q, remote: true do |f| %>
+                    <%= f.label :name, 'name' %>
+                    <%= f.search_field :name %>
+                    <%= f.submit %>
+                  <% end %>
+                   <% if user_signed_in? %>
+                    <% if current_user.admin?%>
+                  <%= link_to 'New Artifact', new_artifact_path class="btn btn-primary" %>
+                  <% end %>
+                  <% end %> 
+                </div>
+                 
+              </div>
+            </div>
+ <% end %>            
+
+        </div>
+        </div>
+        </div>
+        <!--/.Third slide-->
+
+      </div>
+      <!--/.Slides-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+
+
+  </div>

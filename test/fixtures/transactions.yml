@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  artifact: one
+  amaunt: MyString
+  currency: MyString
+  status: MyString
+  details: MyText
+
+two:
+  user: two
+  artifact: two
+  amaunt: MyString
+  currency: MyString
+  status: MyString
+  details: MyText

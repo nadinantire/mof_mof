@@ -1,0 +1,17 @@
+<div class="card-body">
+  <% @comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <div class="card" style="width:18rem">
+      <p class="card-text"></br><%= comment.content %><br></p></br>
+        </div><br>
+        <% if user_signed_in? %>
+            <% if current_user.admin? %>
+        <%= link_to "delete", [comment.exhibition, comment], method: :delete, class:"genric-btn danger-border circle" %>
+        <%= link_to "edit ", edit_exhibition_comment_path(comment.exhibition, comment), class:"genric-btn success-border circle" %></p>
+        <% end %>
+        <% end %>
+        </h4>
+    <% end %>
+  <% end %>
+<%= render 'comments/form'%>
+</div>

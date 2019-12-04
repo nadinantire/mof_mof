@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>image:</strong>
+  <%= image_tag @exhibition.image.url, class: "", size: "200x200" unless @exhibition.image.url.blank? %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @exhibition.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @exhibition.date %>
+</p>
+
+<p>
+  <strong>Start Time:</strong>
+  <%= @exhibition.start_time %>
+</p>
+<p>
+  <strong>Discription:</strong>
+  <%= @exhibition.discription %>
+</p>
+<p>
+  <strong>End Time:</strong>
+  <%= @exhibition.end_time %>
+</p>
+<p>List of Comments(Contents below are important)</p>
+<%= render 'comments/comment' %>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+<%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
+<%= link_to 'Back', exhibitions_path %>
+<% end %>
+<% end %>

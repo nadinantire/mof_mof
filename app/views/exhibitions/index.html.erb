@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<div class="col-sm-6">
+    <h1>Exhibitions</h1>
+  </div>
+
+
+<%= paginate @exhibitions %>
+<br>
+
+
+<div class="container my-4">
+      <div class="carousel-inner" role="listbox">
+<% @exhibitions.each do |exhibition| %>
+        <!--First slide-->
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-4">
+            <h4 class="card-title"><%= exhibition.title %></h4>
+              <div class="card mb-2">
+               <td><% if exhibition.image_url %>
+    <%= image_tag exhibition.image_url, size: "350x200" %>
+ <% end %>
+                <div class="card-body">
+                  <h4 class="card-title"><%= exhibition.date %></h4>
+                  <p class="card-text">start time:<h4><%= exhibition.start_time %></p><br>
+                 <p class="card-text">End time:</h4> <%= exhibition.end_time %></h4></p>
+                  <a class="btn btn-primary">Button</a>
+                  <p class="card-text"><h4><%= exhibition.discription %></h4>
+                  <%=link_to "ATTEND EVENT", new_exhibition_ticket_path(exhibition)%>
+                  <td><%= link_to 'Show', exhibition %></td>
+        
+                </div>
+                <% if user_signed_in? %>
+        <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_exhibition_path(exhibition) %></td>
+        <td><%= link_to 'Destroy', exhibition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'New Exhibition', new_exhibition_path %>
+        <% end %>
+        <% end %> 
+              </div>
+            </div>
+            
+ <% end %>            
+
+        </div>
+        </div>
+        </div>
+        <!--/.Third slide-->
+
+      </div>
+      <!--/.Slides-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+
+
+  </div>

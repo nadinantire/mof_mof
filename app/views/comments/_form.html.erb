@@ -1,0 +1,4 @@
+<%= form_for ([@exhibition, @exhibition.comments.build]) do |f| %>
+    <%= f.text_area :content, class:"single-input", placeholder:"enter comment",required:true %>
+    <%= f.submit "exhibition comment", class:"btn btn-primary" %>
+    <% end %>
